@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { select, Store } from '@ngrx/store';
-import * as fromRoot from '../../../store/reducers';
-import * as fromReddit from '../../store/reducers';
-import { Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Article } from '../../../models/Article';
 
 @Component({
   selector: 'app-article',
@@ -12,15 +10,19 @@ import { Params } from '@angular/router';
 })
 export class ArticleComponent implements OnInit {
 
-  params$: Observable<Params>;
+  articleDetails: Article;
 
-  constructor(private store: Store<fromRoot.State>,
-              private redditStore: Store<fromReddit.ArticlesState>) {
-    this.params$ = store.pipe(
-      select(fromRoot.getRouteParamsState));
+  constructor(private route: ActivatedRoute,
+              private location: Location) {
+    this.route.params.subscribe(() => {
+      this.articleDetails = route.snapshot.data.article;
+    });
   }
 
   ngOnInit() {
   }
 
+  goBack() {
+    this.location.back();
+  }
 }

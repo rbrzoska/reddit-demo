@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { RedditDataService } from '../../../core/reddit-data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Article } from '../../../models/Article';
 
 @Component({
   selector: 'app-articles-list',
@@ -8,10 +8,7 @@ import { RedditDataService } from '../../../core/reddit-data.service';
 })
 export class ArticlesListComponent implements OnInit {
 
-  constructor(private reddit: RedditDataService) {
-    reddit.getArticlesList();
-
-  }
+  @Input() articles: Article[];
 
   ngOnInit() {
   }

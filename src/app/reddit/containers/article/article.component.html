@@ -1,3 +1,3 @@
-<pre>
-  {{params$ | async | json}}
-</pre>
+<app-article-details [details]="articleDetails"></app-article-details>
+<app-article-comments [articleShortId]="articleDetails.shortId"></app-article-comments>
+<button class="btn btn-outline-info" (click)="goBack()">Back</button>

@@ -1,3 +1,11 @@
-<p>
-  article-details works!
-</p>
+<div class="card mt-2">
+  <div class="card-header">
+    <h5 class="card-title"><a class="card-link" href="{{details.url}}" target="_blank">{{details?.title}}</a></h5>
+    <a class="card-text" href="https://www.reddit.com/{{details.redditLink}}" target="_blank">Reddit Link</a>
+  </div>
+
+  <div class="card-body">
+    <img *ngIf="details.preview.type === 'image'" class="card-img-bottom" src="{{details.preview.url}}" alt="Card image cap">
+    <p *ngIf="details.preview.data">{{details.preview.data}}</p>
+  </div>
+</div>

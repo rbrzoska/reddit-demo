@@ -1,13 +1,18 @@
 export interface Article {
   title: string;
   id: string;
+  shortId: string;
+  subredditId?: string;
   thumbnail?: string;
-  html?: string;
-  url: string,
+  url: string;
+  commentsCount: number;
+  redditLink: string;
   preview?: ArticlePreview;
 }
+export type PreviewType = 'text' | 'image' | 'gif' | 'video';
 
 export interface ArticlePreview {
-  image?: string;
-  video?: string;
+  type: 'text' | 'image' ;
+  url?: string;
+  data?: string;
 }

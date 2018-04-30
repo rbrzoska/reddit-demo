@@ -1,0 +1,8 @@
+<app-article-comments-form
+  (sendComment)="handleSendComment($event)">
+</app-article-comments-form>
+<ul class="list-unstyled comments-list">
+  <app-article-comment-item
+    *ngFor="let comment of comments$ | async"
+    [comment]="comment"></app-article-comment-item>
+</ul>
