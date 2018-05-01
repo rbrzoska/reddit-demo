@@ -17,7 +17,7 @@ export class RedditDataService {
 
   constructor(private http: HttpClient) { }
 
-  getArticlesList(pageSize: number = 10, pageId: string = '', direction: string = ''): Observable<Page<Article>> {
+  getArticlesList(pageSize: number = 10, pageId: string = '', direction: string = '', category: string): Observable<Page<Article>> {
 
     this.count = this.getCountNumber(this.count, direction, pageSize, pageId);
     const params = new HttpParams()
@@ -25,7 +25,7 @@ export class RedditDataService {
       .set('count', this.count.toString())
       .set(direction, pageId);
 
-    return this.http.get(redditApiUrl + '/r/popular/.json', { params })
+    return this.http.get(redditApiUrl + `/r/${category}/.json`, { params })
       .pipe(
         map((r: any) => {
           return {

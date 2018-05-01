@@ -7,10 +7,10 @@ import { ArticleResolverService } from './core/article-resolver.service';
 import { ArticlesListResolverService } from './core/articles-list-resolver.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/articles', pathMatch: 'full' },
+  { path: '', redirectTo: '/articles/best', pathMatch: 'full' },
   { path: 'articles', children: [
-      { path: 'page/:direction/:pageId', component: ArticlesComponent, resolve: { articles: ArticlesListResolverService } },
-      { path: '', component: ArticlesComponent, pathMatch: 'full', resolve: { articles: ArticlesListResolverService } },
+      { path: ':category/page/:direction/:pageId', component: ArticlesComponent, resolve: { articles: ArticlesListResolverService } },
+      { path: ':category', component: ArticlesComponent, pathMatch: 'full', resolve: { articles: ArticlesListResolverService } },
       { path: 'details/:id', component: ArticleComponent, resolve: { article: ArticleResolverService } },
       { path: '**', redirectTo: '../404' }
     ]},

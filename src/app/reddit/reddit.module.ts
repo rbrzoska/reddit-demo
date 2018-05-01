@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticleComponent } from './containers/article/article.component';
-import { ArticleListItemComponent } from './components/article-list-item/article-list-item.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { ArticlesComponent } from './containers/articles/articles.component';
 import { ArticlesListComponent } from './components/articles-list/articles-list.component';
@@ -21,7 +20,6 @@ import { RouterModule } from '@angular/router';
   declarations: [
     ArticlesListComponent,
     ArticleComponent,
-    ArticleListItemComponent,
     ArticleDetailsComponent,
     ArticlesComponent,
     PaginationComponent,

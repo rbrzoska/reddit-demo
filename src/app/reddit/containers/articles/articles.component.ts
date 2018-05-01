@@ -16,6 +16,7 @@ export class ArticlesComponent implements OnInit {
 
   animationTrigger: object;
   articles: Page<Article>;
+  category: string;
 
   constructor(private route: ActivatedRoute) {
     this.animationTrigger = {
@@ -29,5 +30,6 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit() {
     this.articles = this.route.snapshot.data.articles;
+    this.category = this.route.snapshot.params.category;
   }
 }

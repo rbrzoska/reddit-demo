@@ -2,12 +2,12 @@
   <ul class="pagination d-flex justify-content-between">
     <li class="page-item">
       <a class="page-link" *ngIf="previous"
-         [routerLink]="['/articles/page','before', previous]" aria-label="Previous">
+         [routerLink]="['/articles', category, 'page','before', previous]" aria-label="Previous">
         <span>Previous</span>
       </a>
     </li>
     <li class="page-item">
-      <a class="page-link" [routerLink]="['/articles/page','after', next]" aria-label="Next">
+      <a class="page-link" [routerLink]="['/articles', category, 'page','after', next]" aria-label="Next">
         <span>Next</span>
       </a>
     </li>

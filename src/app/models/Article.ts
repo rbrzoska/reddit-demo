@@ -9,10 +9,11 @@ export interface Article {
   redditLink: string;
   preview?: ArticlePreview;
 }
+
 export type PreviewType = 'text' | 'image' | 'gif' | 'video';
 
 export interface ArticlePreview {
-  type: 'text' | 'image' ;
+  type: PreviewType;
   url?: string;
   data?: string;
 }

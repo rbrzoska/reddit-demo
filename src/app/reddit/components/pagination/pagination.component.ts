@@ -9,6 +9,7 @@ export class PaginationComponent implements OnInit {
 
   @Input() previous: string;
   @Input() next: string;
+  @Input() category: string;
 
   constructor() { }
 
